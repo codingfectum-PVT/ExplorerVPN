@@ -5,7 +5,7 @@ import Divider from "@mui/material/Divider";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { toggleTheme } from '../../../../Redux/switchTheme'
 import { useDispatch, useSelector } from "react-redux";
-import logo from "../../../../assets/logo.png";
+import logo from "../../../../assets/logo.svg";
 import { MaterialUISwitch, MenuLink, MobileMainMenu, SiteLogo, DrawerBox, DrawerDivider, Humburgger, HumburggerClose, MenuButton } from "../styles";
 
 
@@ -20,9 +20,9 @@ const MobileMenu = (props) => {
     setState({ ...state, [anchor]: open });
   };
   return (
-    <MobileMainMenu>
+    <MobileMainMenu style={{backgroundColor:'#000000',marginTop:'10px',borderRadius:'10px'}}>
       <MenuLink href="/" p="15px 0 15px">
-        <SiteLogo src={logo} width="150" height='50' />
+        <SiteLogo src={logo} width="auto" height='auto'  style={{paddingTop:'10px'}} />
       </MenuLink>
       <MenuButton onClick={toggleDrawer("left", true)}>
         {state["left"] ? (
@@ -40,10 +40,11 @@ const MobileMenu = (props) => {
           role="presentation"
           onClick={toggleDrawer("left", false)}
           onKeyDown={toggleDrawer("left", false)}
+          style={{ backdropFilter:'blur(10px)',backgroundColor:'rgba(0, 0, 0, 1)'}}
         >
           <DrawerDivider>
             <MenuLink href="/">
-              <SiteLogo src={logo} width="150" height='50' />
+              <SiteLogo src={logo} width="auto" height='auto' />
             </MenuLink>
             <Divider />
             <List>
@@ -51,17 +52,7 @@ const MobileMenu = (props) => {
             </List>
           </DrawerDivider>
           <DrawerDivider>
-            <List>
-              <FormControlLabel
-                control={
-                  <MaterialUISwitch 
-                    sx={{ m: 1 }} 
-                    checked={currentTheme}
-                  />
-                }
-                onClick={() => dispatch(toggleTheme())}
-              />
-            </List>
+       
           </DrawerDivider>
         </DrawerBox>
       </Drawer>

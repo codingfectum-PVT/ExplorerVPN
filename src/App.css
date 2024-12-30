@@ -2,6 +2,25 @@
   text-align: center;
 }
 
+::-webkit-scrollbar {
+  width: 8px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FF5B4A;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #FF5B4A;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -12,6 +31,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
 
 .App-header {
   background-color: #282c34;
@@ -29,11 +50,13 @@
 }
 
 @font-face {
-  font-family: "primary";
-  src: url(./assets/fonts/RifficFree-Bold.woff);
+  font-family: primary;
+  src: url(./assets//Fonts/Poppins-Regular.woff);
 }
 
-*{font-family: 'primary' !important ; color: #fff;}
+*{font-family: 'primary' !important ; } 
+
+
 
 @keyframes App-logo-spin {
   from {

@@ -16,6 +16,7 @@ const MobileMainMenu = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0px 20px;
   
   @media (min-width: 900px) {
     display: none;
@@ -24,36 +25,50 @@ const MobileMainMenu = styled.div`
 const SiteLogo = styled.img`
   max-width: 100%;
   height: auto;
+  
+  
 `;
 const MenuLink = styled(Link)`
   font-size: max(15px, 17px);
-  font-family: "poppins-light";
-  font-weight: bolder;
-  color: ${ (props) => props.theme.textPrimary};
-  text-transform: uppercase;
+  color: #E8F4F4;
   text-decoration: none;
-  padding: ${ (props) => props.p? props.p: '0 15px'};
+  padding: ${(props) => (props.p ? props.p : '0 15px')};
   cursor: pointer;
   transition-duration: 0.5s;
+  position: relative;
 
-  &:hover, &:active, &:focus {
-    color: #ffffff;
-    transition-duration: 0.5s;
+ 
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
+
   @media (max-width: 899px) {
     display: block;
-    padding: ${ (props) => props.p? props.p: '15px 0 15px 20px'};
+    padding: ${(props) => (props.p ? props.p : '15px 0 15px 20px')};
     text-align: left;
   }
+
   &:last-child {
-    border-width: 0px;
-    background: red;
-    width: calc(100% - 40px);
+    color: #ffffff;
+    background: #FF5B4A;
+    border-radius: 30px;
     margin: 15px auto;
-    padding: 10px 20px;
+    padding: 15px 25px;
     text-align: center;
+    @media (max-width: 599px) {
+     width: 100%;
+     max-width: 200px;
+  }
+    &::after {
+      content: none; 
+    }
   }
 `;
+
+
+
+
 
 const DrawerBox = styled(Box)`
   width: 250px;

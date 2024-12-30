@@ -1,9 +1,9 @@
 export const websiteLink = '#';
 export const tgLink = '#';
 export const xLink = '#';
-export const dexScreenerLink = '#';
-export const dexToolsLink = '#';
-export const uniSwapLink = '#';
-export const buySellTax = '0/0';
-export const supply = 'TBA';
-export const CA = 'TBA';
+export const instagram = '#';
+export const discord = '#';
+export const appstore = '#';
+export const playstore = '#';
+export const windows = '#';
+export const android = '#';
