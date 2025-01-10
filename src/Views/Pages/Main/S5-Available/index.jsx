@@ -1,28 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { Box, Container, Grid, Typography, Button } from '@mui/material';
-import underline2 from '../../../../assets/underline2.png';
 import windows from '../../../../assets/windows.svg';
-import android from '../../../../assets/android.png';
-import ios from '../../../../assets/ios.svg';
-import google from '../../../../assets/google.svg';
+import macos from '../../../../assets/macos.svg';
+import linux from '../../../../assets/linux.svg';
+import android from '../../../../assets/android.svg';
+import chrome from '../../../../assets/chrome.svg';
 import firefox from '../../../../assets/firefox.svg';
 import edge from '../../../../assets/edge.svg';
-import mobile from '../../../../assets/mobile.png';
-import windowsred from '../../../../assets/windowred.png';
-import androidred from '../../../../assets/androidred.png';
-import applered from '../../../../assets/applered.png';
+import androidtv from '../../../../assets/androidtv.svg';
+import tvos from '../../../../assets/tvos.svg';
+import buttonsec from '../../../../assets/buttonsec.svg';
+import edgehov from '../../../../assets/edgehov.svg';
+import firefoxhov from '../../../../assets/firefoxhov.svg';
+import androidhov from '../../../../assets/androidhov.svg';
+import chromehov from '../../../../assets/chromehov.svg';
+import tvoshov from '../../../../assets/tvoshov.svg';
+import windowshov from '../../../../assets/windowshov.svg';
+import linuxhov from '../../../../assets/linuxhov.svg';
+import androidtvvhov from '../../../../assets/androidtvvhov.svg';
+import machov from '../../../../assets/machov.svg';
 
 const Wrapper = styled(Box)`
   padding: 80px 0px;
+  background: linear-gradient(180deg, #171717 -15%, #79514d 180%);
+  position: relative; 
+`;
+
+const ButtonSecImage = styled('img')`
+  position: absolute;
+  top: 10px; 
+  left: 65%;
+  width: 140px; 
+  height: auto;
+  @media (max-width: 600px) {
+    width: 100px; 
+    top: 10px; 
+  }
 `;
 
 const ImageContainer = styled(Box)`
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: relative;
+  text-align: center;
   @media (max-width: 600px) {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -39,53 +62,24 @@ const IconWrapper = styled(Box)`
 `;
 
 const IconImage = styled('img')`
+  width: 100px;
+  margin-bottom: 20px;
+  height: auto;
   transition: transform 0.3s ease, opacity 0.3s ease;
   &:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
   }
   @media (max-width: 600px) {
-    margin-left: 10px; 
+    margin-left: 10px;
+    width: 80px;
   }
 `;
 
-const ButtonWrapper = styled(Box)`
+const CenterText = styled(Box)`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
-  margin-left: -25px;
-  @media (max-width: 600px) {
-    margin-left: 0; 
-    margin-top: 10px; 
-    align-items: center; 
-  }
-`;
-
-const StyledButton = styled(Button)`
-  background-color: #FF5B4A !important;
-  color: #fff !important;
-  border-radius: 20px !important;
-  min-width: 160px !important;
-  padding: 5px 10px !important;
-  &:hover {
-    background-color: #FF5B4A !important;
-  }
-`;
-
-const ComingSoonButton = styled(Button)`
-  background-color: #f2f2f2 !important;
-  color: #999 !important;
-  border: 1px dashed #999 !important;
-  font-style: italic !important;
-  cursor: default !important;
-  min-width: 170px !important;
-  border-radius: 20px !important;
-  padding: 5px 5px !important;
-`;
-
-const Mobile = styled('img')`
-  width: 100%;
-  max-width: 500px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Available = () => {
@@ -95,27 +89,36 @@ const Available = () => {
     {
       id: 'windows',
       img: windows,
-      imgActive: windowsred,
+      hoverImg: windowshov,
       title: 'Windows',
       buttons: ['Windows 32-bit', 'Windows 64-bit'],
     },
     {
+      id: 'macos',
+      img: macos,
+      hoverImg: machov,
+      title: 'macOS',
+      buttons: ['macOS (Premium)'],
+    },
+    {
+      id: 'linux',
+      img: linux,
+      hoverImg: linuxhov,
+      title: 'Linux',
+      buttons: ['Linux (Premium)'],
+    },
+    {
       id: 'android',
       img: android,
-      imgActive: androidred,
+      hoverImg: androidhov,
       title: 'Android',
       buttons: ['Android (Premium)'],
     },
-    {
-      id: 'ios',
-      img: ios,
-      imgActive: applered,
-      title: 'iOS',
-      buttons: ['iOS (Premium)'],
-    },
-    { id: 'chrome', img: google, title: 'Chrome' },
-    { id: 'firefox', img: firefox, title: 'Firefox' },
-    { id: 'edge', img: edge, title: 'Edge' },
+    { id: 'chrome', img: chrome, hoverImg: chromehov, title: 'Chrome', buttons: ['Install Chrome'] },
+    { id: 'firefox', img: firefox, hoverImg: firefoxhov, title: 'Firefox', buttons: ['Install Firefox'] },
+    { id: 'edge', img: edge, hoverImg: edgehov, title: 'Edge', buttons: ['Install Edge'] },
+    { id: 'androidtv', img: androidtv, hoverImg: androidtvvhov, title: 'AndroidTV', buttons: ['Install AndroidTV App'] },
+    { id: 'tvos', img: tvos, hoverImg: tvoshov, title: 'tvOS', buttons: ['Install tvOS App'] },
   ];
 
   const handleClick = (id) => {
@@ -124,8 +127,8 @@ const Available = () => {
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (!e.target.closest('.icon-wrapper') && !e.target.closest('.button-wrapper')) {
-        setActivePlatform(null); 
+      if (!e.target.closest('.icon-wrapper')) {
+        setActivePlatform(null);
       }
     };
 
@@ -138,67 +141,70 @@ const Available = () => {
 
   return (
     <Wrapper>
+      <ButtonSecImage src={buttonsec} alt="Button Section Image" />
       <Container maxWidth="xl">
-        <Grid container>
-          <Grid item xs={12} md={6}>
-            <ImageContainer>
-              <Typography variant="h2" sx={{ fontSize: { xs: '30px', sm: '35px', md: '40px' }, color: '#171717' }}>
-                Available
-              </Typography>
-              <img src={underline2} alt="Underline" style={{ width: '100%', maxWidth: '100px', marginLeft: '20px' }} />
-            </ImageContainer>
-            <Typography variant="h2" sx={{ fontSize: { xs: '45px', sm: '55px', md: '61px' }, fontWeight: '600', marginBottom: '30px' }}>
+        <Grid container justifyContent={'center'} textAlign={'center'}>
+          <Grid item xs={12} md={9}>
+            <Typography variant="h2" mb={2} sx={{ fontSize: { xs: '30px', sm: '35px', md: '45px' }, color: '#FFFFFF' }}>
+              Available
+            </Typography>
+            <Typography variant="h2" mb={2} sx={{ fontSize: { xs: '45px', sm: '55px', md: '61px' }, fontWeight: '600', color: '#FFFFFF' }}>
               For All Devices
             </Typography>
-            <Typography variant="body1" sx={{ color: '#818181', fontSize: { xs: '14px', sm: '16px', md: '18px' }, maxWidth: '460px', marginBottom: '60px' }}>
-              Use seamlessly across Mobile, desktop, and more. Enjoy secure and fast connections on any device, anytime, anywhere.
-            </Typography>
+            <CenterText>
+              <Typography variant="body1" sx={{ color: '#FFFFFF', fontSize: { xs: '14px', sm: '16px', md: '18px' }, marginBottom: '80px', maxWidth: '450px' }}>
+                Download ExplorerVPN today and connect to unlimited devices with one subscription.
+              </Typography>
+            </CenterText>
 
-            <Grid container>
-              {platforms.map((platform) => (
-                <Grid item xs={6} sm={4} key={platform.id}>
+            <Grid container spacing={3} justifyContent="center" mb={4}>
+              {platforms.slice(0, 5).map((platform) => (
+                <Grid item xs={6} sm={3} md={2} key={platform.id}>
                   <ImageContainer>
-                    <IconWrapper
-                      className="icon-wrapper"
-                      onClick={platform.buttons ? () => handleClick(platform.id) : undefined} 
-                    >
-                      <IconImage
-                        src={activePlatform === platform.id ? platform.imgActive : platform.img}
-                        alt={platform.title}
-                      />
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          color: '#171717',
-                          fontSize: { xs: '14px', sm: '16px', md: '16px' },
-                          fontWeight: '600',
-                        }}
-                      >
+                    <IconWrapper className="icon-wrapper" onClick={() => handleClick(platform.id)}>
+                      <IconImage src={activePlatform === platform.id ? platform.hoverImg : platform.img} alt={platform.title} />
+                      <Typography variant="body1" sx={{ color: '#FFFFFF', fontSize: { xs: '14px', sm: '16px', md: '16px' } }}>
                         {platform.title}
                       </Typography>
                     </IconWrapper>
+                    {activePlatform === platform.id && platform.buttons && (
+                      <Box mt={2} display="flex" flexDirection="column" alignItems="center">
+                        {platform.buttons.map((button, index) => (
+                          <Button key={index} variant="contained"sx={{marginBottom: '10px',backgroundColor: '#FFFFFF', color: '#000000', padding:'13px 15px',borderRadius: '30px', 
+                              '&:hover': {backgroundColor: '#79514d',color: '#FFFFFF', },}}>
+                            {button}
+                          </Button>
+                        ))}
+                      </Box>
+                    )}
                   </ImageContainer>
-                  {activePlatform === platform.id && platform.buttons && (
-                    <ButtonWrapper className="button-wrapper">
-                      {platform.buttons.map((buttonText, index) =>
-                        buttonText === 'Coming Soon' ? (
-                          <ComingSoonButton key={index} disabled>
-                            {buttonText}
-                          </ComingSoonButton>
-                        ) : (
-                          <a href="#" key={index} style={{ textDecoration: 'none' }}>
-                            <StyledButton>{buttonText}</StyledButton>
-                          </a>
-                        )
-                      )}
-                    </ButtonWrapper>
-                  )}
                 </Grid>
               ))}
             </Grid>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Mobile src={mobile} alt="Mobile" />
+            <Grid container spacing={3} justifyContent="center">
+              {platforms.slice(5).map((platform) => (
+                <Grid item xs={6} sm={3} md={2} key={platform.id}>
+                  <ImageContainer>
+                    <IconWrapper className="icon-wrapper" onClick={() => handleClick(platform.id)}>
+                      <IconImage src={activePlatform === platform.id ? platform.hoverImg : platform.img} alt={platform.title} />
+                      <Typography variant="body1" sx={{ color: '#FFFFFF', fontSize: { xs: '14px', sm: '16px', md: '16px' } }}>
+                        {platform.title}
+                      </Typography>
+                    </IconWrapper>
+                    {activePlatform === platform.id && platform.buttons && (
+                      <Box mt={2} display="flex" flexDirection="column" alignItems="center">
+                        {platform.buttons.map((button, index) => (
+                          <Button key={index} variant="contained" sx={{marginBottom: '10px',backgroundColor: '#FFFFFF', color: '#000000', padding:'13px 15px',borderRadius: '30px',
+                              '&:hover': {backgroundColor: '#79514d',color: '#FFFFFF', },}}>
+                            {button}
+                          </Button>
+                        ))}
+                      </Box>
+                    )}
+                  </ImageContainer>
+                </Grid>
+              ))}
+            </Grid>
           </Grid>
         </Grid>
       </Container>

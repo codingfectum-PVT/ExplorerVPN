@@ -1,31 +1,32 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { Box, Button, Container, Grid, Typography } from '@mui/material'
-import underline from '../../../../assets/underline.png'
-import explore from '../../../../assets/explore.png'
+import React from 'react';
+import styled from '@emotion/styled';
+import { Box, Button, Container, Grid, Typography } from '@mui/material';
+import underline from '../../../../assets/underline.png';
+import explore from '../../../../assets/explore.png';
+import what from '../../../../assets/what.svg';
 
 const Wrapper = styled(Box)`
   padding: 80px 0px;
-`
+`;
 
 const ButtonEx = styled(Button)`
   padding: 15px 20px;
   background-color: #FF5B4A;
   color: #ffffff;
   border-radius: 40px;
-  transition: transform 0.3s ease;  
-  
+  transition: transform 0.3s ease;
+
   &:hover {
-    background-color: #FF5B4A;  
-    transform: scale(1.1); 
+    background-color: #FF5B4A;
+    transform: scale(1.1);
   }
 `;
 
 const TextWithImageWrapper = styled(Box)`
   display: flex;
-  flex-direction: column; 
-  align-items: flex-end; 
-`
+  flex-direction: column;
+  align-items: flex-end;
+`;
 
 const Exploreimg = styled('img')`
   width: 100%;
@@ -33,35 +34,53 @@ const Exploreimg = styled('img')`
   @media (max-width: 600px) {
     padding-top: 15px;
   }
-`
+`;
+
+const WhatImage = styled('img')`
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin-top: 50px;
+  margin-right: 100px;
+
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
 
 const Explore = () => {
   return (
     <Wrapper>
-      <Container maxWidth='xl'>
+      <Container maxWidth="lg">
         <Grid container>
           <Grid item xs={12} md={6}>
-            <Typography  variant='body1' sx={{ fontSize: { xs: '14px', sm: '16px', md: '18px' },  color: '#818181', marginBottom: '10px'  }}>
+            <Typography variant="body1" sx={{fontSize: { xs: '14px', sm: '16px', md: '18px' },color: '#818181',marginBottom: '10px',}}>
               Save big on the world's leading VPN
             </Typography>
-            <Typography  variant='h2'  sx={{  fontWeight: 600,  color: '#171717',  maxWidth: '600px',  fontSize: { xs: '30px', sm: '45px', md: '61px' }}} >
-              The best dVPN for Speed and Security.
-            </Typography>
-            <TextWithImageWrapper>
-              <img src={underline}  alt="Your browser does not support the image tag"  style={{ marginRight: 'auto', marginLeft: 'auto', marginBottom: '40px', marginTop: '10px' }}   />
-            </TextWithImageWrapper>
-            <Typography  variant='body1'  sx={{   color: '#818181', maxWidth: '520px', marginBottom: '40px',  fontSize: { xs: '14px', sm: '16px', md: '18px' }}}>
-              Explorer VPN offers lightning-fast connections and cutting-edge encryption for ultimate online privacy. Enjoy secure, seamless browsing without compromising speed.
-            </Typography>
-            <ButtonEx>Get Explorer VPN</ButtonEx>
+            <Box display="flex">
+              <Typography variant="h2" sx={{fontWeight: 600,color: '#171717',maxWidth: '300px',marginBottom: '20px',fontSize: { xs: '35px', sm: '45px', md: '61px' },}}>
+                What is VPN
+              </Typography>
+              <WhatImage src={what} alt="what" />
+            </Box>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Exploreimg src={explore} alt='Your browser does not support the image tag'/>
+          <Typography sx={{ mt: { xs: 2, sm: 5, md: 15 },fontSize: { xs: '16px', md: '19px' }, color:'#171717'}}>
+            A VPN -<span style={{ color: '#000', fontWeight: 'bold', fontSize: '18px' }}>
+              "virtual private network",
+            </span>{' '}
+            is a secure tunnel between your device and the internet. VPNs protect you
+            from snooping, interference, and censorship. As you connect to a secure VPN
+            server, your internet traffic goes through an encrypted tunnel that nobody
+            can see into-including hackers, governments, and your internet service
+            provider.
+          </Typography>
           </Grid>
         </Grid>
       </Container>
     </Wrapper>
-  )
-}
+  );
+};
 
 export default Explore;

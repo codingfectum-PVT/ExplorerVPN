@@ -17,13 +17,8 @@ const BgImageWrapper = styled(PageWrapper)`
   background-image: url(${background});
   background-size: cover; 
   background-repeat: no-repeat;
-
-
-
   @media (max-width: 769px) {
     background-size: contain;
-    
-  
   }
 `;
 
@@ -35,14 +30,12 @@ const MainPage = (props) => {
         <Header/>
         <Explore/>
         <Why/>
-        <Whyneed/>
         <Available/>
-        <BgImageWrapper >
-        <SafestVPN/>
+        <Whyneed/>
+        {/* <SafestVPN/> */}
         <Reviews/>
         <FAQ/>
         <Footer/>
-        </BgImageWrapper>
     </PageWrapper>
   )
 }

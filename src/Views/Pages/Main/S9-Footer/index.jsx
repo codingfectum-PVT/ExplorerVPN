@@ -8,6 +8,14 @@ import insta from '../../../../assets/insta.svg';
 import discord from '../../../../assets/discord.svg';
 import hand from '../../../../assets/hand.svg';
 import tweet from '../../../../assets/tweet.svg';
+import { tgLink } from '../../../../links';
+import {instagram} from '../../../../links';
+import {xLink} from '../../../../links';
+import {discordlink} from '../../../../links';
+import {handlink} from '../../../../links';
+import {playstorelink} from '../../../../links';
+
+
 
 const Wrapper = styled(Box)`
   padding: 40px 0px;
@@ -17,7 +25,8 @@ const Wrapper = styled(Box)`
 `;
 
 const Logo = styled('img')`
-width: auto;
+width: 100%;
+max-width: 290px;
 height: auto;
   margin-bottom: 20px;
 `;
@@ -44,7 +53,7 @@ const PlaystoreButton = styled(Button)`
   color: #ffffff;
   text-transform: none;
   
-  padding: 15px 25px;
+  padding: 10px 20px;
   border-radius: 40px;
   margin-right: 10px;
   text-decoration: none;
@@ -53,7 +62,7 @@ const PlaystoreButton = styled(Button)`
   }
 
   @media (max-width: 1025px) {
-padding: 10px 20px;
+padding: 10px 10px;
 font-size: 11px;
   
   }
@@ -66,7 +75,7 @@ const PlaystoreIcon = styled('img')`
 
 const Link = styled(Typography)`
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   position: relative;
   cursor: pointer;
   font-size: 14px;
@@ -78,7 +87,7 @@ const Link = styled(Typography)`
 
 const SectionTitle = styled(Typography)`
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   position: relative;
   font-size: 16px;
 
@@ -113,14 +122,18 @@ const Footer = () => {
         <Grid container spacing={4} justifyContent="space-between">
           <Grid item xs={12} md={4}>
             <Logo src={logo} alt="logo" />
-            <Typography variant="body2" sx={{ color: '#ffffff', maxWidth: '300px', marginBottom: '20px' }} >
+            <Typography variant="body2" sx={{ color: '#ffffff', maxWidth: '420px', marginBottom: '20px' }} >
               Enjoy a more private and secure internet, block malicious websites, stop web trackers, and monitor your data leaks all in one app.
             </Typography>
             <Box display="flex">
-            <a href="#" style={{ textDecoration: 'none' }}>
+            <a  href={playstorelink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
               <PlaystoreButton>
                 <PlaystoreIcon src={playstore} alt="playstore" />
-                Get it on Google Play
+                <Box display={'flex' }flexDirection={'column'}>
+                  <Box fontSize='12px' marginRight='40px'>Get it on </Box>
+                  <Typography marginTop='-5px' fontWeight='550'> Google Play</Typography>
+                </Box>
+            
               </PlaystoreButton>
               </a>
               <StyledButton>Direct Download</StyledButton>
@@ -153,24 +166,24 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        <Box mt={4} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #454649', paddingTop: '35px' }}>
+        <Box mt={7} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #454649', paddingTop: '35px' }}>
           <Typography variant="body2" sx={{ color: '#ffffff' }}>
             Copyright © 2024, All Rights Reserved
           </Typography>
           <Box display="flex" alignItems="center">
-            <a href='#'>
+          <a href={instagram} target="_blank" rel="noopener noreferrer">
               <SocialIcon src={insta} alt="instagram" />
             </a>
-            <a href='#'>
+            <a href={xLink} target="_blank" rel="noopener noreferrer">
               <SocialIcon src={tweet} alt="twitter" />
             </a>
-            <a href='#'>
+            <a href={handlink} target="_blank" rel="noopener noreferrer">
               <SocialIcon src={hand} alt="hand" />
             </a>
-            <a href='#'>
+            <a href={tgLink} target="_blank" rel="noopener noreferrer">
               <SocialIcon src={tg} alt="telegram" />
             </a>
-            <a href='#'>
+            <a href={discordlink} target="_blank" rel="noopener noreferrer">
               <SocialIcon src={discord} alt="discord" />
             </a>
           </Box>

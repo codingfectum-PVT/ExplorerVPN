@@ -8,7 +8,7 @@ const DesktopMainMenu = styled(Container)`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 899px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
@@ -18,7 +18,7 @@ const MobileMainMenu = styled.div`
   align-items: center;
   padding: 0px 20px;
   
-  @media (min-width: 900px) {
+  @media (min-width: 1199px) {
     display: none;
   }
 `;
@@ -32,10 +32,13 @@ const MenuLink = styled(Link)`
   font-size: max(15px, 17px);
   color: #E8F4F4;
   text-decoration: none;
-  padding: ${(props) => (props.p ? props.p : '0 15px')};
+  padding: ${(props) => (props.p ? props.p : '0 20px')};
   cursor: pointer;
   transition-duration: 0.5s;
   position: relative;
+  &:hover {
+    color: #FF5B4A;
+  }
 
  
   &:hover::after {
@@ -43,7 +46,7 @@ const MenuLink = styled(Link)`
     transform-origin: bottom left;
   }
 
-  @media (max-width: 899px) {
+  @media (max-width: 1199px) {
     display: block;
     padding: ${(props) => (props.p ? props.p : '15px 0 15px 20px')};
     text-align: left;
@@ -56,7 +59,7 @@ const MenuLink = styled(Link)`
     margin: 15px auto;
     padding: 15px 25px;
     text-align: center;
-    @media (max-width: 599px) {
+    @media (max-width: 1199px) {
      width: 100%;
      max-width: 200px;
   }
@@ -65,6 +68,7 @@ const MenuLink = styled(Link)`
     }
   }
 `;
+
 
 
 

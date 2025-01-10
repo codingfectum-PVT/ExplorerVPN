@@ -4,43 +4,49 @@ import DesktopMenu from './component/DesktopMenu';
 import MobileMenu from './component/MobileMenu';
 
 const LockerMenu = (props) => {
-    const menuList = [ // You can pass 4 perameters for menu title, link, target and customClass
+    const menuList = [
         {
-        title: "Features",
-        link: "#",
+            title: "Business VPN",
+            link: "#",
         },
         {
-        title: "Pricing",
-        link: "#",
+            title: "Features",
+            link: "#",
         },
         {
-        title: "Download",
-        link: "#",
-        target: "_blank"
+            title: "Pricing",
+            link: "#",
+            target: "_blank"
+        },
+        {
+            title: "Download",
+            link: "#",
+            target: "_blank"
         },
         {
           title: "Help",
           link: "#",
           target: "_blank"
-          },
+      },
         {
-        title: "Get App",
-        link: "#",
-        customClass: "",
-        target: "_blank"
+            title: "Login",
+            link: "#",
+            target: "_blank",
+            customClass: "login-item" // Add the custom class here
+        },
+        {
+            title: "Get Explorer VPN",
+            link: "#",
+            target: "_blank"
         },
     ];
-  return (
-   
-    <Container maxWidth='xl'>
-      
-        <DesktopMenu menuList={menuList} />
-   
-        <MobileMenu menuList={menuList} />
-     
-    </Container>
 
-  )
+    return (
+        <Container maxWidth='xl'>
+            <DesktopMenu menuList={menuList} />
+            <MobileMenu menuList={menuList} />
+        </Container>
+    )
 }
 
-export default LockerMenu
+export default LockerMenu;
